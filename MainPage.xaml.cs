@@ -28,11 +28,9 @@ namespace _5_crypto_2_app
             this.InitializeComponent();
         }
 
-        private void OnButtonPressed(object sender, PointerRoutedEventArgs e)
+        private void FirstChooseButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog messageDialog = new MessageDialog("Clicked " + sender.ToString());
-            
-            messageDialog.ShowAsync().AsTask();
+            EnterOutputFileNameTextBox.Text += "a";
         }
     }
 }
