@@ -23,7 +23,6 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="3*" />
             <RowDefinition Height="3*" />
-            <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
         
         <Border 
@@ -43,9 +42,9 @@
             Grid.Column="0" 
             Grid.Row="1" 
             Margin="4" 
-            Name="EnterProbsFileNameTextBlock">
+            Name="EnterProbsTextBlock">
             <Viewbox>
-                <TextBlock>Введите путь к файлу с<LineBreak/>вероятностями символов алфавита</TextBlock>
+                <TextBlock>Введите алфавит<LineBreak/>([Символ][Пробел][Вероятность]):</TextBlock>
             </Viewbox>
         </Border>
 
@@ -54,9 +53,9 @@
             Grid.Column="0" 
             Grid.Row="2" 
             Margin="4" 
-            Name="EnterInputFileNameTextBlock">
+            Name="EnterInputTextBlock">
             <Viewbox>
-                <TextBlock>Введите путь к файлу с данными <LineBreak/>для кодирования/декодирования</TextBlock>
+                <TextBlock>Введите данные для<LineBreak/> кодирования/декодирования</TextBlock>
             </Viewbox>
         </Border>
 
@@ -64,17 +63,6 @@
             Background="#FF9BA6A4" 
             Grid.Column="0" 
             Grid.Row="3" 
-            Margin="4" 
-            Name="EnterOutputFileNameTextBlock">
-            <Viewbox>
-                <TextBlock>Введите путь к файлу в который<LineBreak/>необходимо записать результат</TextBlock>
-            </Viewbox>
-        </Border>
-
-        <Border 
-            Background="#FF9BA6A4" 
-            Grid.Column="0" 
-            Grid.Row="4" 
             Margin="4" 
             Name="ChooseModeTextBlock">
             <Viewbox>
@@ -85,11 +73,23 @@
         <Border 
             Background="#FF9BA6A4" 
             Grid.Column="0" 
+            Grid.Row="4" 
+            Margin="4" 
+            Name="ResultTextBlock">
+            <Viewbox>
+                <TextBlock>Результат выбранного действия:</TextBlock>
+            </Viewbox>
+        </Border>
+
+
+        <Border 
+            Background="#FF9BA6A4" 
+            Grid.Column="0" 
             Grid.Row="5" 
             Margin="4" 
-            Name="ProbsFileTextBlock">
+            Name="CodeWordsTextBlock">
             <Viewbox>
-                <TextBlock>В файле с вероятностями<LineBreak/>символов алфавита<LineBreak/>находится следующее сообщение:</TextBlock>
+                <TextBlock>Кодовые слова для<LineBreak/>каждого символа алфавита:</TextBlock>
             </Viewbox>
         </Border>
 
@@ -109,9 +109,9 @@
             Grid.Column="0" 
             Grid.Row="7" 
             Margin="4" 
-            Name="OutputFileTextBlock">
+            Name="CharacteristicsTextBlock">
             <Viewbox>
-                <TextBlock>В файле с результатами<LineBreak/>кодировки/декодировки<LineBreak/>находится следующее сообщение:</TextBlock>
+                <TextBlock>Результаты вычисления<LineBreak/>некоторых характеристик на<LineBreak/>основе заданного алфавита:</TextBlock>
             </Viewbox>
         </Border>
 
@@ -121,7 +121,7 @@
             Grid.Row="1" 
             Grid.ColumnSpan="2"
             Margin="4">
-            <TextBox Name="EnterProbsFileNameTextBox"/>
+            <TextBox Name="EnterProbsTextBox"/>
         </Border>
 
         <Border 
@@ -130,16 +130,16 @@
             Grid.Row="2" 
             Grid.ColumnSpan="2"
             Margin="4">
-            <TextBox Name="EnterInputFileNameTextBox"/>
+            <TextBox Name="EnterInputTextBox"/>
         </Border>
 
         <Border 
             Background="#FFCFDAD8" 
             Grid.Column="1" 
-            Grid.Row="3" 
+            Grid.Row="4" 
             Grid.ColumnSpan="2"
             Margin="4">
-            <TextBox Name="EnterOutputFileNameTextBox"/>
+            <TextBox TextWrapping="Wrap" Name="ResultTextBox"/>
         </Border>
 
         <Border 
@@ -148,7 +148,7 @@
             Grid.Row="5" 
             Grid.ColumnSpan="2"
             Margin="4">
-            <TextBox Name="ProbsFileTextBox"/>
+            <TextBox TextWrapping="Wrap" Name="CodeWordsTextBox"/>
         </Border>
 
         <Border 
@@ -166,12 +166,12 @@
             Grid.Row="7" 
             Grid.ColumnSpan="2"
             Margin="4">
-            <TextBox Name="OutputFileTextBox"/>
+            <TextBox TextWrapping="Wrap" Name="CharacteristicsTextBox"/>
         </Border>
 
         <Border 
             Grid.Column="1" 
-            Grid.Row="4" 
+            Grid.Row="3" 
             Margin="4">
             <Button
                 Name="FirstChooseButton"
@@ -188,14 +188,14 @@
 
         <Border 
             Grid.Column="2" 
-            Grid.Row="4" 
+            Grid.Row="3" 
             Margin="4">
             <Button
                 Name="SecondChooseButton"
                 Background="#FF87BFC5"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                Click="FirstChooseButton_Click">
+                Click="SecondChooseButton_Click">
                 <Viewbox>
                     <TextBlock Text="Декодировать"/>
                 </Viewbox>
